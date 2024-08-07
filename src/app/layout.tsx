@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./theme/globals.css";
 import { cn } from "@/utils/utils";
+import ReactQueryProvider from "@/react-query";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(nunito.className)}>{children}</body>
+      <ReactQueryProvider>
+        <body className={cn(nunito.className)}>{children}</body>
+      </ReactQueryProvider>
     </html>
   );
 }

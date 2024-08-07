@@ -1,7 +1,15 @@
-export default function Home() {
+"use client";
+
+import React from "react";
+import Dashboard from "./dashboard/layout";
+import DashBoardPage from "./dashboard/page";
+
+function App() {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <Dashboard>
+      <DashBoardPage />
+    </Dashboard>
   );
 }
+
+export default App;
