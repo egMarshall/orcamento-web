@@ -3,18 +3,25 @@ import { BudgetItemProps } from "../page";
 
 interface BudgetItemListProps {
   items: BudgetItemProps[];
-  removeBudgetItem: (itemId: number) => void;
-  editBudgetItem: (itemId: number) => void;
+  removeBudgetItem: (itemId: string) => void;
+  editBudgetItem: (item: BudgetItemProps) => void;
 }
 
-export default function BudgetItemsList({items, removeBudgetItem, editBudgetItem}: BudgetItemListProps) {
-
+export default function BudgetItemsList({
+  items,
+  removeBudgetItem,
+  editBudgetItem,
+}: BudgetItemListProps) {
   return (
     <div className="border border-primary-subtitle rounded-sm w-full p-10">
-      {items.map((item) => <BudgetItem key={item.id} {...item} 
-      removeItem={() => removeBudgetItem(item.id)}
-      editItem={() => editBudgetItem(item.id)}
-      />)}
+      {items.map((item) => (
+        <BudgetItem
+          key={item.id}
+          {...item}
+          removeItem={() => removeBudgetItem(item.id)}
+          editItem={() => editBudgetItem(item)}
+        />
+      ))}
     </div>
   );
 }
