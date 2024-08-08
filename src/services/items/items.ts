@@ -22,13 +22,13 @@ async function createItem(dataSubmit: CreateDataSubmit): Promise<DataSubmit> {
     },
     body: JSON.stringify(dataSubmit),
   });
+  const json = await response.json();
 
   if (!response.ok) {
-    console.log(response);
-    throw new Error("Erro ao criar item");
+    throw new Error(json.message);
   }
 
-  return response.json();
+  return json;
 }
 
 async function updateItem(dataSubmit: DataSubmit): Promise<DataSubmit> {
@@ -43,12 +43,13 @@ async function updateItem(dataSubmit: DataSubmit): Promise<DataSubmit> {
       body: JSON.stringify(dataSubmit),
     }
   );
+  const json = await response.json();
 
   if (!response.ok) {
-    throw new Error("Erro ao atualizar item");
+    throw new Error(json.message);
   }
 
-  return response.json();
+  return json;
 }
 
 async function getAllItems(): Promise<DataSubmit[]> {
@@ -59,12 +60,13 @@ async function getAllItems(): Promise<DataSubmit[]> {
       Authorization: `Bearer: ${sessionStorage.getItem("token")}`,
     },
   });
+  const json = await response.json();
 
   if (!response.ok) {
-    throw new Error("Erro ao buscar itens");
+    throw new Error(json.message);
   }
 
-  return response.json();
+  return json;
 }
 
 async function deleteItem(item_id: string): Promise<void> {
@@ -78,10 +80,13 @@ async function deleteItem(item_id: string): Promise<void> {
       },
     }
   );
+  const json = await response.json();
 
   if (!response.ok) {
-    throw new Error("Erro ao deletar item");
+    throw new Error(json.message);
   }
+
+  return json;
 }
 
 export { createItem, updateItem, getAllItems, deleteItem };
