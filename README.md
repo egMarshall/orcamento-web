@@ -66,7 +66,7 @@
 
 - [x] Deletar Item;
 
-## Rodando Localmente
+## Como rodar o Projeto
 
 Clone o projeto
 
@@ -79,6 +79,14 @@ Entre no diretório do projeto
 ```bash
   cd the_budget_front
 ```
+
+### Rodando com o Docker
+
+```bash
+  docker-compose up -d
+```
+
+### Rodando Localmente
 
 Utilize a versão correta do NPM
 
