@@ -9,15 +9,45 @@
 
 ### Login
 
+#### Modo Diurno
+
 <img width="500" src="public/assets/img/login_day.png">
+
+#### Modo Noturno
+
 <img width="500" src="public/assets/img/login_night.png">
 
 ### Cadastro
 
+#### Modo Diurno
+
 <img width="500" src="public/assets/img/signup_day.png">
+
+#### Modo Noturno
+
 <img width="500" src="public/assets/img/signup_night.png">
 
 ### Dashboard
+
+#### Seleção de Filtros
+
+<img width="500" src="public/assets/img/dashboard.png">
+
+#### Criar ou Editar Item
+
+<img width="500" src="public/assets/img/create_item.png">
+
+#### Editar Dados do Usuário
+
+<img width="500" src="public/assets/img/edit_user.png">
+
+#### Deletar Usuário
+
+<img width="500" src="public/assets/img/delete_user.png">
+
+#### Deletar Item
+
+<img width="500" src="public/assets/img/delete_item.png">
 
 ## Tecnologias utilizadas
 
