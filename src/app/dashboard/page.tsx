@@ -9,6 +9,7 @@ import {
   deleteItem,
   updateItem,
 } from "@/services/items/items";
+import Spinner from "../components/spinner";
 
 export interface BudgetItemProps {
   id: string;
@@ -33,6 +34,7 @@ export interface SortingOptions {
 }
 
 export default function Dashboard() {
+  const [isLoading, setIsLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [newItem, setNewItem] = useState(true);
   const [selectedItem, setSelectedItem] = useState<BudgetItemProps | undefined>(
@@ -62,6 +64,8 @@ export default function Dashboard() {
         setItems(fetchedItems);
       } catch (error) {
         console.error("Erro ao buscar itens:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -160,7 +164,10 @@ export default function Dashboard() {
             <option value="lowestValue">Menor valor</option>
           </select>
         </div>
-        {sortedItems.length > 0 ? (
+
+        {isLoading ? (
+          <Spinner />
+        ) : sortedItems.length > 0 ? (
           <BudgetItemsList
             items={sortedItems}
             removeBudgetItem={removeBudgetItem}
@@ -172,7 +179,9 @@ export default function Dashboard() {
       </div>
       <div className="flex flex-col items-center w-1/4 border-l border-primary-subtitle">
         <h2 className="text-2xl">Saldo:</h2>
-        <h3 className="text-xl">R$ {calculateBalance(items)}</h3>
+        <h3 className="text-xl">
+          R$ {isLoading ? <Spinner /> : calculateBalance(items)}
+        </h3>
       </div>
     </main>
   );

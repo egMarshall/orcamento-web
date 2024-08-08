@@ -5,8 +5,10 @@ import { redirect } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import { getSession, updateUser, UpdateDataSubmit } from "@/services/auth/auth";
 import EditProfileModal from "./components/editProfileModal";
+import Spinner from "../components/spinner";
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<{ name: string; email: string }>(
     {} as { name: string; email: string }
   );
@@ -19,9 +21,15 @@ export default function Layout({ children }: { children: ReactNode }) {
     }
 
     async function fetchUser() {
-      const session = await getSession();
-      if (session) {
-        setUser({ name: session.name, email: session.email });
+      try {
+        const session = await getSession();
+        if (session) {
+          setUser({ name: session.name, email: session.email });
+        }
+      } catch (error) {
+        console.log("Erro ao buscar dados do usuário", error);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -51,8 +59,14 @@ export default function Layout({ children }: { children: ReactNode }) {
       <div className="flex flex-col p-4 border items-center bg-menu-bg text-white border-gray-400 absolute h-screen">
         <h1 className="text-3xl">Menu</h1>
         <div className="flex flex-col h-full relative">
-          <h2>{user.name}</h2>
-          <h2>{user.email}</h2>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              <h2>{user.name}</h2>
+              <h2>{user.email}</h2>
+            </>
+          )}
           <button onClick={() => openModal()}>Editar dados</button>
           <div className="flex absolute bottom-0 w-full justify-center">
             <Link onClick={handleLogout} href="/login">
