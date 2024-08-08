@@ -3,7 +3,7 @@ import { BudgetItemProps } from "../page";
 
 interface BudgetItemListProps {
   items: BudgetItemProps[];
-  removeBudgetItem: (itemId: string) => void;
+  removeBudgetItem: (item: BudgetItemProps) => void;
   editBudgetItem: (item: BudgetItemProps) => void;
 }
 
@@ -18,7 +18,7 @@ export default function BudgetItemsList({
         <BudgetItem
           key={item.id}
           {...item}
-          removeItem={() => removeBudgetItem(item.id)}
+          removeItem={() => removeBudgetItem(item)}
           editItem={() => editBudgetItem(item)}
         />
       ))}

@@ -11,6 +11,7 @@ import {
 } from "@/services/items/items";
 import Spinner from "../components/spinner";
 import { toast } from "sonner";
+import DeleteItemModal from "./components/deleteItemModal";
 
 export interface BudgetItemProps {
   id: string;
@@ -37,10 +38,13 @@ export interface SortingOptions {
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [deleteItemModalOpen, setDeleteItemModalOpen] = useState(false);
   const [newItem, setNewItem] = useState(true);
   const [selectedItem, setSelectedItem] = useState<BudgetItemProps | undefined>(
     undefined
   );
+  const [selectedItemToDelete, setSelectedItemToDelete] =
+    useState<BudgetItemProps>();
   const [items, setItems] = useState<BudgetItemProps[]>([]);
   const [sortOption, setSortOption] =
     useState<keyof SortingOptions>("recentDate");
@@ -58,6 +62,12 @@ export default function Dashboard() {
 
   const closeModal = () => setModalOpen(false);
 
+  const openDeleteItemModal = (item: BudgetItemProps) => {
+    setSelectedItemToDelete(item);
+    setDeleteItemModalOpen(true);
+  };
+  const closeDeleteItemModal = () => setDeleteItemModalOpen(false);
+
   useEffect(() => {
     async function fetchItems() {
       try {
@@ -69,16 +79,21 @@ export default function Dashboard() {
         setIsLoading(false);
       }
     }
-
     fetchItems();
   }, []);
 
-  async function removeBudgetItem(itemId: string) {
+  async function removeBudgetItem(deleting_item: BudgetItemProps) {
     try {
-      await deleteItem(itemId);
-      setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-    } catch (error) {
-      console.error("Erro ao deletar item:", error);
+      await deleteItem(deleting_item.id);
+      setItems((prevItems) =>
+        prevItems.filter((item) => item.id !== deleting_item.id)
+      );
+      closeDeleteItemModal();
+    } catch (error: any) {
+      console.log(error);
+      toast.error("Erro ao criar item", {
+        description: error.message,
+      });
     }
   }
 
@@ -87,9 +102,11 @@ export default function Dashboard() {
       const newItem = await createItem(item);
       setItems((prevItems) => [...prevItems, newItem]);
       closeModal();
-      toast.success("Item criado com sucesso!");
-    } catch (error) {
-      console.error("Erro ao criar item:", error);
+    } catch (error: any) {
+      console.log(error);
+      toast.error("Erro ao criar item", {
+        description: error.message,
+      });
     }
   }
 
@@ -102,8 +119,11 @@ export default function Dashboard() {
         )
       );
       closeModal();
-    } catch (error) {
-      console.error("Erro ao editar item:", error);
+    } catch (error: any) {
+      console.log(error);
+      toast.error("Erro ao criar item", {
+        description: error.message,
+      });
     }
   }
 
@@ -152,6 +172,13 @@ export default function Dashboard() {
             item={selectedItem}
           />
         )}
+        {deleteItemModalOpen && (
+          <DeleteItemModal
+            item={selectedItemToDelete}
+            closeModal={closeDeleteItemModal}
+            handleDeleteItem={removeBudgetItem}
+          />
+        )}
         <div className="flex justify-end mb-5">
           <select
             value={sortOption}
@@ -172,7 +199,7 @@ export default function Dashboard() {
         ) : sortedItems.length > 0 ? (
           <BudgetItemsList
             items={sortedItems}
-            removeBudgetItem={removeBudgetItem}
+            removeBudgetItem={(item) => openDeleteItemModal(item)}
             editBudgetItem={(item) => openModal(item)}
           />
         ) : (
