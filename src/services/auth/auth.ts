@@ -78,7 +78,8 @@ async function signUp(dataSubmit: SignUpDataSubmit): Promise<LoginResponse> {
   });
 
   if (!response.ok) {
-    throw new Error("Erro ao fazer login");
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Erro ao fazer cadastro");
   }
 
   const { token } = await response.json();
