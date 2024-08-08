@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "./theme/globals.css";
 import { cn } from "@/utils/utils";
 import ReactQueryProvider from "@/react-query";
+import { Toaster } from "./components/toast";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactQueryProvider>
-        <body className={cn(nunito.className)}>{children}</body>
+        <body className={cn(nunito.className)}>
+          {children} <Toaster richColors />
+        </body>
       </ReactQueryProvider>
     </html>
   );

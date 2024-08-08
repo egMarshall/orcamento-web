@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     }
 
     fetchUser();
-  }, []);
+  }, [router]);
 
   function handleLogout() {
     sessionStorage.removeItem("token");

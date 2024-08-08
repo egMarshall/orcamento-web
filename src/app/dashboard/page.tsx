@@ -10,6 +10,7 @@ import {
   updateItem,
 } from "@/services/items/items";
 import Spinner from "../components/spinner";
+import { toast } from "sonner";
 
 export interface BudgetItemProps {
   id: string;
@@ -86,6 +87,7 @@ export default function Dashboard() {
       const newItem = await createItem(item);
       setItems((prevItems) => [...prevItems, newItem]);
       closeModal();
+      toast.success("Item criado com sucesso!");
     } catch (error) {
       console.error("Erro ao criar item:", error);
     }

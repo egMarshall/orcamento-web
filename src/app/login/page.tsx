@@ -5,6 +5,7 @@ import { signIn } from "@/services/auth/auth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,12 +15,11 @@ export default function LoginPage() {
 
   const mutation = useMutation(signIn, {
     onSuccess: () => {
-      console.log("Login successful");
+      toast.success("Login realizado com sucesso");
       setError(null);
       router.push("/dashboard");
     },
     onError: (error: any) => {
-      console.error("Login failed:", error);
       if (error.message === "Failed to fetch") {
         setError("Erro de conexão com o servidor");
         return;

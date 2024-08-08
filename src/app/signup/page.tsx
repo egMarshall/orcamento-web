@@ -5,6 +5,7 @@ import { signUp } from "@/services/auth/auth";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -18,7 +19,7 @@ export default function SignUpPage() {
 
   const mutation = useMutation(signUp, {
     onSuccess: () => {
-      console.log("Sign up successful");
+      toast.success("Cadastro realizado com sucesso");
       setSignUpError(null);
       router.push("/dashboard");
     },
