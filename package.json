@@ -6,6 +6,10 @@
     "name": "Érico Marshall",
     "email": "ericogmarshall1@gmail.com"
   },
+  "license": "MIT",
+  "engines": {
+    "node": "21.4.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
