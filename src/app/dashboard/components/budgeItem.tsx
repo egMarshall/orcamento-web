@@ -23,12 +23,15 @@ export default function budgetItem({
 }: budgetItemProps) {
   return (
     <section
-      className={cn(
-        `flex border border-primary-background rounded-md p-1 mb-1`,
-        type == "Receita" ? "bg-green-200" : "bg-red-200"
-      )}
+      className={cn(`flex border border-gray-100 rounded-md mb-2 shadow-md`)}
     >
-      <div className="flex w-4/5 justify-start space-x-4">
+      <div
+        className={cn(
+          `"flex border shadow-md w-5 h-full"`,
+          type == "Receita" ? "bg-green-200" : "bg-red-200"
+        )}
+      ></div>
+      <div className="flex w-4/5 justify-start space-x-4 ml-5 p-2">
         <div className="w-1/3">
           <h1>{name}</h1>
         </div>

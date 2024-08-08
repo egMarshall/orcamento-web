@@ -155,15 +155,33 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="container mx-auto text-gray-600 flex flex-row justify-center w-100">
-      <div className="flex flex-col items-center w-3/5">
-        <h1 className="text-3xl mb-10">Sistema de orçamento</h1>
-        <button
-          onClick={() => openModal()}
-          className="dark:text-primary-title text-white bg-primary-title hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-1/5 sm:w-1/5 px-5 py-2.5 text-center dark:bg-gray-200 dark:hover:bg-primary-background mb-5"
-        >
-          Adicionar Item
-        </button>
+    <main className="container mx-auto text-gray-600 flex flex-row justify-center w-100 bg-slate-100 pl-5">
+      <div className="flex flex-col items-center w-4/5">
+        <h1 className="text-3xl mb-10 mt-10">Sistema de orçamento</h1>
+        <div className="flex w-full">
+          <div className="flex w-full justify-center">
+            <button
+              onClick={() => openModal()}
+              className=" text-white bg-menu-bg hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-1/5 sm:w-1/5 px-5 py-2.5 text-center mb-5 ml-20 shadow-md"
+            >
+              <h1 className="text-lg">Adicionar Item</h1>
+            </button>
+          </div>
+          <div className="flex justify-end mb-5">
+            <select
+              value={sortOption}
+              onChange={(e) =>
+                setSortOption(e.target.value as keyof SortingOptions)
+              }
+              className="px-4 py-2 rounded bg-gray-200 shadow-md h-10"
+            >
+              <option value="recentDate">Data mais recente</option>
+              <option value="oldestDate">Data mais antiga</option>
+              <option value="highestValue">Maior valor</option>
+              <option value="lowestValue">Menor valor</option>
+            </select>
+          </div>
+        </div>
         {modalOpen && (
           <ItemModal
             closeModal={closeModal}
@@ -179,21 +197,6 @@ export default function Dashboard() {
             handleDeleteItem={removeBudgetItem}
           />
         )}
-        <div className="flex justify-end mb-5">
-          <select
-            value={sortOption}
-            onChange={(e) =>
-              setSortOption(e.target.value as keyof SortingOptions)
-            }
-            className="px-4 py-2 rounded bg-gray-200"
-          >
-            <option value="recentDate">Data mais recente</option>
-            <option value="oldestDate">Data mais antiga</option>
-            <option value="highestValue">Maior valor</option>
-            <option value="lowestValue">Menor valor</option>
-          </select>
-        </div>
-
         {isLoading ? (
           <Spinner />
         ) : sortedItems.length > 0 ? (
@@ -206,8 +209,8 @@ export default function Dashboard() {
           <h2 className="text-2xl">Nenhum item cadastrado</h2>
         )}
       </div>
-      <div className="flex flex-col items-center w-1/4 border-l border-primary-subtitle">
-        <h2 className="text-2xl">Saldo:</h2>
+      <div className="flex flex-col items-center w-1/5">
+        <h2 className="text-2xl mt-20">Saldo:</h2>
         <h3 className="text-xl">
           R$ {isLoading ? <Spinner /> : calculateBalance(items)}
         </h3>

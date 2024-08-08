@@ -101,7 +101,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             </div>
           )}
           <button
-            className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+            className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full transition duration-200 hover:shadow-lg"
             onClick={() => openModal()}
           >
             <Image src={editIcon} alt="Editar" width={20} />
@@ -109,14 +109,14 @@ export default function Layout({ children }: { children: ReactNode }) {
           </button>
           <div className="flex flex-col absolute bottom-0 w-full justify-center">
             <button
-              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full transition duration-200 hover:shadow-lg"
               onClick={() => openDeleteModal()}
             >
               <Image src={deleteUserIcon} alt="Editar" width={20} />
               Deletar conta
             </button>
             <button
-              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full transition duration-200 hover:shadow-lg"
               onClick={handleLogout}
             >
               <Image src={logoutIcon} alt="Editar" width={20} />

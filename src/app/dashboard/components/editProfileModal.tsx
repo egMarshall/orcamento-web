@@ -59,7 +59,7 @@ export default function EditProfileModal({
             <label
               htmlFor="text"
               className={cn(
-                `block mb-2 text-sm font-medium text-gray-900 dark:text-white`,
+                `block mb-2 text-sm font-medium text-gray-900`,
                 isUserNameEmpty && "text-red-500"
               )}
             >
@@ -71,7 +71,7 @@ export default function EditProfileModal({
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               className={cn(
-                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none`,
+                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 focus:outline-none shadow-md`,
                 isUserNameEmpty && "border-red-500"
               )}
             />
@@ -80,7 +80,7 @@ export default function EditProfileModal({
             <label
               htmlFor="text"
               className={cn(
-                `block mb-2 text-sm font-medium text-gray-900 dark:text-white`,
+                `block mb-2 text-sm font-medium text-gray-900`,
                 isInputsEmpty && "text-red-500"
               )}
             >
@@ -92,7 +92,7 @@ export default function EditProfileModal({
               value={userNewPassword}
               onChange={(e) => setUserNewPassword(e.target.value)}
               className={cn(
-                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none`,
+                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 focus:outline-none shadow-md`,
                 isInputsEmpty && "border-red-500"
               )}
             />
@@ -101,7 +101,7 @@ export default function EditProfileModal({
             <label
               htmlFor="text"
               className={cn(
-                `block mb-2 text-sm font-medium text-gray-900 dark:text-white`,
+                `block mb-2 text-sm font-medium text-gray-900`,
                 isInputsEmpty && "text-red-500"
               )}
             >
@@ -113,7 +113,7 @@ export default function EditProfileModal({
               value={userConfirmPassword}
               onChange={(e) => setUserConfirmPassword(e.target.value)}
               className={cn(
-                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none`,
+                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5  focus:outline-none shadow-md`,
                 isInputsEmpty && "border-red-500"
               )}
             />
@@ -126,7 +126,7 @@ export default function EditProfileModal({
           <div className="flex flex-col items-center">
             <button
               type="submit"
-              className="dark:text-primary-title text-white bg-primary-title hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center dark:bg-gray-200 dark:hover:bg-primary-background"
+              className=" text-white bg-primary-title hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center shadow-lg"
             >
               Editar Dados
             </button>
@@ -134,7 +134,7 @@ export default function EditProfileModal({
         </form>
         <div className="flex justify-center mt-4">
           <button
-            className="text-primary-title border border-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center dark:bg-primary-title dark:text-white dark:hover:bg-gray-600"
+            className="text-primary-title border border-gray-300 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center shadow-lg"
             onClick={closeModal}
           >
             Fechar

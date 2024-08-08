@@ -71,7 +71,7 @@ export default function ItemModal({
             <label
               htmlFor="text"
               className={cn(
-                `block mb-2 text-sm font-medium text-gray-900 dark:text-white`,
+                `block mb-2 text-sm font-medium text-gray-900`,
                 isValidationFailed && "text-red-500"
               )}
             >
@@ -84,7 +84,7 @@ export default function ItemModal({
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
               className={cn(
-                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none`,
+                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5  focus:outline-none shadow-sm`,
                 isValidationFailed && "border-red-500"
               )}
             />
@@ -93,7 +93,7 @@ export default function ItemModal({
             <label
               htmlFor="number"
               className={cn(
-                `block mb-2 text-sm font-medium text-gray-900 dark:text-white`,
+                `block mb-2 text-sm font-medium text-gray-900`,
                 isValidationFailed && "text-red-500"
               )}
             >
@@ -105,7 +105,7 @@ export default function ItemModal({
               value={itemValue}
               onChange={(e) => setItemValue(Number(e.target.value))}
               className={cn(
-                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none`,
+                `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title block w-full p-2.5  focus:outline-none shadow-sm`,
                 isValidationFailed && "border-red-500"
               )}
             />
@@ -120,14 +120,14 @@ export default function ItemModal({
                 handleCheckboxChange(itemType === "Despesa" ? "" : "Despesa")
               }
               className={cn(
-                `w-4 h-4 text-primary-title bg-gray-100 border-gray-300 rounded focus:ring-primary-title dark:focus:ring-gray-400 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 accent-primary-title`,
+                `w-4 h-4 text-primary-title bg-gray-100 border-gray-300 rounded focus:ring-primary-title accent-primary-title shadow-sm`,
                 isValidationFailed && "text-red-500"
               )}
             />
             <label
               htmlFor="checkbox-2"
               className={cn(
-                `ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 mr-4`,
+                `ms-2 text-sm font-medium text-gray-900 mr-4`,
                 isValidationFailed && "text-red-500"
               )}
             >
@@ -142,14 +142,14 @@ export default function ItemModal({
                 handleCheckboxChange(itemType === "Receita" ? "" : "Receita")
               }
               className={cn(
-                `w-4 h-4 text-primary-title bg-gray-100 border-gray-300 rounded focus:ring-primary-title dark:focus:ring-gray-400 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 accent-primary-title`,
+                `w-4 h-4 text-primary-title bg-gray-100 border-gray-300 rounded focus:ring-primary-title accent-primary-title shadow-sm`,
                 isValidationFailed && "text-red-500"
               )}
             />
             <label
               htmlFor="checkbox-2"
               className={cn(
-                `ms-2 text-sm font-medium text-gray-900 dark:text-gray-300`,
+                `ms-2 text-sm font-medium text-gray-900`,
                 isValidationFailed && "text-red-500"
               )}
             >
@@ -169,7 +169,7 @@ export default function ItemModal({
                   : "Selecione a data"
               }
               inputClassName={cn(
-                `bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-300 focus:outline-none text-primary-title placeholder-primary-title`,
+                `bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:border-primary-title focus:ring-primary-title w-full p-2.5 focus:outline-none text-primary-title placeholder-primary-title shadow-sm`,
                 isValidationFailed && "border-red-500"
               )}
             />
@@ -182,7 +182,7 @@ export default function ItemModal({
           <div className="flex flex-col items-center">
             <button
               type="submit"
-              className="dark:text-primary-title text-white bg-primary-title hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center dark:bg-gray-200 dark:hover:bg-primary-background"
+              className="text-white bg-primary-title hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center shadow-md"
             >
               {newItem ? "Confirmar" : "Editar Item"}
             </button>
@@ -190,7 +190,7 @@ export default function ItemModal({
         </form>
         <div className="flex justify-center mt-4">
           <button
-            className="text-primary-title border border-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center dark:bg-primary-title dark:text-white dark:hover:bg-gray-600"
+            className="text-primary-title border border-gray-200 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center shadow-md"
             onClick={closeModal}
           >
             Fechar

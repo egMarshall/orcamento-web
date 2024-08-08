@@ -36,12 +36,12 @@ export default function DeleteItemModal({
           <button
             type="submit"
             onClick={handleFormSubmit}
-            className="text-white bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center hover:bg-red-700 my-2"
+            className="text-white bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center hover:bg-red-700 my-2 shadow-md"
           >
             Deletar Item
           </button>
           <button
-            className="text-primary-title border border-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center dark:bg-primary-title dark:text-white dark:hover:bg-gray-600"
+            className="text-primary-title border border-gray-300 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center shadow-md"
             onClick={closeModal}
           >
             Fechar

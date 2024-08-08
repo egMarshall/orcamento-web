@@ -19,7 +19,7 @@ export default function DeleteAccountModal({
       onClick={closeModal}
     >
       <div
-        className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
+        className="relative top-20 mx-auto p-5 border border-transparent w-96 shadow-lg rounded-md bg-white"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col justify-center text-2xl text-center">
@@ -30,12 +30,12 @@ export default function DeleteAccountModal({
           <button
             type="submit"
             onClick={handleFormSubmit}
-            className="text-white bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center hover:bg-red-700 my-2"
+            className="text-white bg-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 px-5 py-2.5 text-center hover:bg-red-700 my-2 shadow-md"
           >
             Deletar Conta
           </button>
           <button
-            className="text-primary-title border border-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center dark:bg-primary-title dark:text-white dark:hover:bg-gray-600"
+            className="text-primary-title border border-gray-300 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-1/2 py-2.5 text-center shadow-md"
             onClick={closeModal}
           >
             Fechar
