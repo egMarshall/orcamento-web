@@ -12,6 +12,12 @@ import {
 import EditProfileModal from "./components/editProfileModal";
 import Spinner from "../components/spinner";
 import DeleteAccountModal from "./components/deleteAccountModal";
+import Image from "next/image";
+import userIcon from "../../../public/assets/icons/userName.svg";
+import mailIcon from "../../../public/assets/icons/userMail.svg";
+import editIcon from "../../../public/assets/icons/editUser.svg";
+import deleteUserIcon from "../../../public/assets/icons/deleteUser.svg";
+import logoutIcon from "../../../public/assets/icons/logout.svg";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -77,27 +83,45 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex h-screen">
-      <div className="flex flex-col p-4 border items-center bg-menu-bg text-white border-gray-400 absolute h-screen">
+      <div className="flex flex-col p-6 border items-center bg-menu-bg text-white border-gray-400 h-screen">
         <h1 className="text-3xl">Menu</h1>
         <div className="flex flex-col h-full relative">
           {isLoading ? (
             <Spinner />
           ) : (
-            <>
-              <h2>{user.name}</h2>
-              <h2>{user.email}</h2>
-            </>
+            <div className="flex flex-col gap-2 py-4">
+              <div className="flex items-center gap-1">
+                <Image src={userIcon} alt="Editar" width={20} />
+                <h2>{user.name}</h2>
+              </div>
+              <div className="flex items-center gap-1">
+                <Image src={mailIcon} alt="Editar" width={20} />
+                <h2>{user.email}</h2>
+              </div>
+            </div>
           )}
-          <button onClick={() => openModal()}>Editar dados</button>
+          <button
+            className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+            onClick={() => openModal()}
+          >
+            <Image src={editIcon} alt="Editar" width={20} />
+            Editar dados
+          </button>
           <div className="flex flex-col absolute bottom-0 w-full justify-center">
-            <button onClick={() => openDeleteModal()}>Deletar conta</button>
-            <Link
-              className="text-center mt-5"
-              onClick={handleLogout}
-              href="/login"
+            <button
+              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+              onClick={() => openDeleteModal()}
             >
+              <Image src={deleteUserIcon} alt="Editar" width={20} />
+              Deletar conta
+            </button>
+            <button
+              className="mt-5 text-center inline-flex items-center gap-1 self-center hover:bg-menu-bg-hover rounded-md p-2 w-full"
+              onClick={handleLogout}
+            >
+              <Image src={logoutIcon} alt="Editar" width={20} />
               Logout
-            </Link>
+            </button>
           </div>
         </div>
       </div>
