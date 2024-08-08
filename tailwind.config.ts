@@ -5,7 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js"
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
     extend: {
@@ -18,7 +18,8 @@ const config: Config = {
         "primary-background": "#EFEDE7",
         "menu-bg": "#4F5D75",
         "primary-title": "#2D3142",
-        "primary-subtitle": "#BFC0C0"
+        "primary-subtitle": "#BFC0C0",
+        "menu-bg-hover": "#3E4C66",
       },
     },
   },
