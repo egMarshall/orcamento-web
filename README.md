@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Budget App - Front-End
 
-## Getting Started
+## O que é necessário para testar essa aplicação?
 
-First, run the development server:
+- Ter o [Node.js](https://nodejs.org/en) instalado na versão 21.4.0 ou acima;
+- Ter o gerenciador de pacotes [NPM](https://www.npmjs.com/) instalado;
+
+## Telas
+
+### Login
+
+<img width="500" src="public/assets/img/login_day.png">
+<img width="500" src="public/assets/img/login_night.png">
+
+### Cadastro
+
+<img width="500" src="public/assets/img/signup_day.png">
+<img width="500" src="public/assets/img/signup_night.png">
+
+### Dashboard
+
+## Tecnologias utilizadas
+
+- [NextJS](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Day.js](https://day.js.org/)
+- [React Tailwind Datepicker](https://react-tailwindcss-datepicker.vercel.app/)
+
+## Funcionalidades
+
+### Usuário
+
+**Cadastro de Usuários:**
+
+- [x] Nome do Usuário;
+- [x] Email do Usuário;
+- [x] Senha do Usuário;
+
+**Login de Usuários:**
+
+- [x] Email do Usuário;
+- [x] Senha do Usuário;
+
+**Atualização de Cadastro dos Usuários:**
+
+- [x] Nome do Usuário;
+- [x] Senha do Usuário;
+
+### Dashboard
+
+- [x] Visualização de todos os Itens do Usuário;
+- [x] Cadastrar Item do Usuário;
+
+  - Nome do Item;
+  - Valor do Item;
+  - Tipo de Item (Receita ou Despesa);
+  - Data do Registro;
+
+- [x] Atualizar Item;
+
+  - Nome do Item;
+  - Valor do Item;
+  - Tipo de Item (Receita ou Despesa);
+  - Data do Registro;
+
+- [x] Deletar Item;
+
+## Rodando Localmente
+
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/egMarshall/the_budget_front
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre no diretório do projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd the_budget_front
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Utilize a versão correta do NPM
 
-## Learn More
+```bash
+  nvm use default
+```
 
-To learn more about Next.js, take a look at the following resources:
+Instale as dependências
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm i
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Inicie o projeto
 
-## Deploy on Vercel
+```bash
+  npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Guia de Estilos do Projeto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Documentação de cores
+
+| Cor                | Hexadecimal                                                      |
+| ------------------ | ---------------------------------------------------------------- |
+| Primary Background | ![#EFEDE7](https://via.placeholder.com/10/EFEDE7?text=+) #EFEDE7 |
+| Menu Background    | ![#4F5D75](https://via.placeholder.com/10/4F5D75?text=+) #4F5D75 |
+| Primary Title      | ![#2D3142](https://via.placeholder.com/10/2D3142?text=+) #2D3142 |
+| Primary Subtitle   | ![#BFC0C0](https://via.placeholder.com/10/BFC0C0?text=+) #BFC0C0 |
+
+### Documentação de Fontes
+
+| Nome   | Tipo     | Peso |
+| ------ | -------- | ---- |
+| Nunito | **Bold** | 700  |
+| Nunito | Regular  | 400  |
+| Nunito | Light    | 300  |
