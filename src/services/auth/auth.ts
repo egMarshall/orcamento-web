@@ -84,6 +84,8 @@ async function signUp(dataSubmit: SignUpDataSubmit): Promise<LoginResponse> {
 
   const { token } = await response.json();
 
+  sessionStorage.setItem("token", token);
+
   if (!token) {
     throw new Error("Erro ao fazer login");
   }
@@ -114,4 +116,19 @@ async function updateUser(dataSubmit: UpdateDataSubmit): Promise<UserData> {
   return { name, email };
 }
 
-export { signIn, getSession, signUp, updateUser };
+async function deleteUser(): Promise<void> {
+  const response = await fetch(`http://localhost:3001/users`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer: ${sessionStorage.getItem("token")}`,
+    },
+  });
+
+  console.log(response);
+
+  if (!response.ok) {
+    throw new Error("Erro ao deletar usuário");
+  }
+}
+
+export { signIn, getSession, signUp, updateUser, deleteUser };

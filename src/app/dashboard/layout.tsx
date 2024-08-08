@@ -1,23 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
-import { getSession, updateUser, UpdateDataSubmit } from "@/services/auth/auth";
+import {
+  getSession,
+  updateUser,
+  UpdateDataSubmit,
+  deleteUser,
+} from "@/services/auth/auth";
 import EditProfileModal from "./components/editProfileModal";
 import Spinner from "../components/spinner";
+import DeleteAccountModal from "./components/deleteAccountModal";
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<{ name: string; email: string }>(
     {} as { name: string; email: string }
   );
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     if (!token) {
-      redirect("/login");
+      router.push("/login");
     }
 
     async function fetchUser() {
@@ -38,11 +46,14 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   function handleLogout() {
     sessionStorage.removeItem("token");
-    redirect("/login");
+    router.push("/login");
   }
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  const openDeleteModal = () => setModalDeleteOpen(true);
+  const closeDeleteModal = () => setModalDeleteOpen(false);
 
   async function handleEditProfile(user: UpdateDataSubmit) {
     try {
@@ -51,6 +62,16 @@ export default function Layout({ children }: { children: ReactNode }) {
       closeModal();
     } catch (error) {
       console.log("Erro ao atualizar dados do usuário", error);
+    }
+  }
+
+  async function handleDeleteAccount() {
+    try {
+      await deleteUser();
+      closeModal();
+      handleLogout();
+    } catch (error) {
+      console.log("Erro ao deletar conta", error);
     }
   }
 
@@ -68,8 +89,13 @@ export default function Layout({ children }: { children: ReactNode }) {
             </>
           )}
           <button onClick={() => openModal()}>Editar dados</button>
-          <div className="flex absolute bottom-0 w-full justify-center">
-            <Link onClick={handleLogout} href="/login">
+          <div className="flex flex-col absolute bottom-0 w-full justify-center">
+            <button onClick={() => openDeleteModal()}>Deletar conta</button>
+            <Link
+              className="text-center mt-5"
+              onClick={handleLogout}
+              href="/login"
+            >
               Logout
             </Link>
           </div>
@@ -80,6 +106,12 @@ export default function Layout({ children }: { children: ReactNode }) {
           user={{ name: user.name, password: "" }}
           closeModal={closeModal}
           handleSubmit={handleEditProfile}
+        />
+      )}
+      {modalDeleteOpen && (
+        <DeleteAccountModal
+          closeModal={closeDeleteModal}
+          handleDeleteAccount={handleDeleteAccount}
         />
       )}
       {children}
