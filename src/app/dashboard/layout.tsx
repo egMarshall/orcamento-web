@@ -83,7 +83,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex h-screen">
-      <div className="flex flex-col p-6 border items-center bg-menu-bg text-white border-gray-400 h-screen">
+      <div className="flex flex-col p-6 border items-center bg-menu-bg text-white h-screen">
         <h1 className="text-3xl">Menu</h1>
         <div className="flex flex-col h-full relative">
           {isLoading ? (
