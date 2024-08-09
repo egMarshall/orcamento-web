@@ -214,7 +214,7 @@ export default function Dashboard() {
           <h2 className="text-2xl">Nenhum item cadastrado</h2>
         )}
       </div>
-      <div className="flex flex-col items-center w-1/5">
+      <div className="flex flex-col items-center w-1/5 overflow-y-hidden">
         <h2 className="text-2xl mt-20">Saldo:</h2>
         <h3 className="text-xl">
           R$ {isLoading ? <Spinner /> : calculateBalance(items)}

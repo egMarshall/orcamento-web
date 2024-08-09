@@ -13,7 +13,7 @@ export default function BudgetItemsList({
   editBudgetItem,
 }: BudgetItemListProps) {
   return (
-    <div className="bg-white border border-transparent rounded-lg w-full p-10 shadow-lg">
+    <div className="bg-white border border-transparent rounded-lg w-full p-10 shadow-lg overflow-y-auto">
       <div className="flex w-4/5 justify-start space-x-4 ml-9 py-2 font-bold">
         <div className="w-1/3">
           <h1>Nome</h1>

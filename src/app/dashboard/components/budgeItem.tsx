@@ -22,7 +22,7 @@ export default function budgetItem({
   removeItem,
 }: budgetItemProps) {
   return (
-    <section
+    <div
       className={cn(`flex border border-gray-100 rounded-md mb-2 shadow-md`)}
     >
       <div
@@ -50,6 +50,6 @@ export default function budgetItem({
           <Image src={deleteIcon} alt="Deletar" width={20} />
         </button>
       </div>
-    </section>
+    </div>
   );
 }
