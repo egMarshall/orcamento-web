@@ -95,6 +95,8 @@
   - Data do Registro;
 
 - [x] Deletar Item;
+- [x] Deletar Usuário;
+- [x] Logout do Usuário; 
 
 ## Como rodar o Projeto
 
