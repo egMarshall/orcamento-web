@@ -105,7 +105,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             onClick={() => openModal()}
           >
             <Image src={editIcon} alt="Editar" width={20} />
-            Editar dados
+            Editar Dados
           </button>
           <div className="flex flex-col absolute bottom-0 w-full justify-center">
             <button
@@ -120,7 +120,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               onClick={handleLogout}
             >
               <Image src={logoutIcon} alt="Editar" width={20} />
-              Logout
+              Sair
             </button>
           </div>
         </div>
