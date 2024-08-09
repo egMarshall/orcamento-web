@@ -89,6 +89,7 @@ export default function Dashboard() {
         prevItems.filter((item) => item.id !== deleting_item.id)
       );
       closeDeleteItemModal();
+      toast.success("Item removido com sucesso");
     } catch (error: any) {
       console.log(error);
       toast.error("Erro ao criar item", {
@@ -102,6 +103,9 @@ export default function Dashboard() {
       const newItem = await createItem(item);
       setItems((prevItems) => [...prevItems, newItem]);
       closeModal();
+      toast.success("Item criado com sucesso", {
+        description: `Você adicionou ${newItem.name} ao seu inventário`,
+      });
     } catch (error: any) {
       console.log(error);
       toast.error("Erro ao criar item", {
@@ -119,6 +123,7 @@ export default function Dashboard() {
         )
       );
       closeModal();
+      toast.success("Item editado com sucesso");
     } catch (error: any) {
       console.log(error);
       toast.error("Erro ao criar item", {
